@@ -22,7 +22,7 @@ packages_dir: !ruby/object:Pathname
   path: /Users/jnraine/projects/munkiserver/packages
 ```
 
-__Be sure to leave the {code}!ruby/object:Pathname{code} there.__
+Be sure to leave the !ruby/object:Pathname there.
 
 ### Syncing your packages ###
 
