@@ -27,6 +27,7 @@ gem 'sqlite3'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'guard'
 end
