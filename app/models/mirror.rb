@@ -3,8 +3,6 @@ require 'open-uri'
 # require 'pathname'
 
 class Mirror < OpenStruct
-  PACKAGE_DIR = Pathname.new("/Users/jnraine/projects/jungle/instance/munkiserver/packages")
-  MASTER_HOST = "http://localhost:3000"
   
   def self.get(id)
     response_body = open(url(id)).read
@@ -18,7 +16,19 @@ class Mirror < OpenStruct
   end
   
   def self.url(id)
-    "#{MASTER_HOST}/pkgs/#{id}.json"
+    "#{master_hostname}/pkgs/#{id}.json"
+  end
+  
+  def self.settings
+    PackageMirror::Application::SETTINGS
+  end
+  
+  def self.master_hostname
+    settings["master_hostname"]
+  end
+  
+  def self.packages_dir
+    settings["packages_dir"]
   end
   
   def initialize(package_attr)

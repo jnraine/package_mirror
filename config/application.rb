@@ -8,6 +8,15 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module PackageMirror
   class Application < Rails::Application
+    # Load server configuration YAML file
+    settings = nil
+    begin
+      settings = YAML.load(File.read("#{Rails.root}/config/settings.yaml"))
+    rescue Errno::ENOENT
+      Rails.logger.warn "#{Rails.root}/config/settings.yaml does not exist -- not loading settings"
+    end
+    SETTINGS = settings || {}
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

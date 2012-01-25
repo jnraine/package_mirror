@@ -1,0 +1,4 @@
+---
+master_hostname: http://localhost:3000
+packages_dir: !ruby/object:Pathname 
+  path: /Users/jnraine/projects/jungle/instance/munkiserver/packages
