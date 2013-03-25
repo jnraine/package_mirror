@@ -35,9 +35,6 @@ class Mirror < OpenStruct
     super
     self.created_at = Time.parse(package_attr.delete("created_at"))
     self.updated_at = Time.parse(package_attr.delete("updated_at"))
-    # package_attr.each do |name, value|
-    #   self.send("#{name}=", value)
-    # end
   end
   
   def download_filename    
